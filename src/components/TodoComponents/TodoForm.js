@@ -6,11 +6,11 @@ export default class TodoForm extends React.Component {
     }
     
     render () {
-        const { todos, handleChange, handleSubmit, formTodo } = this.props;
+        const { todos, handleChange, handleSubmit, formTodo, handleStaged } = this.props;
         return (
             <div>
                 {todos.map(item => (
-                    <div key={item.id}>
+                    <div onClick={() => handleStaged(item)} key={item.id}>
                         {item.task}
                     </div>
                 ))}
