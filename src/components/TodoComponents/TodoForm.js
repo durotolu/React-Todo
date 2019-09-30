@@ -6,7 +6,7 @@ export default class TodoForm extends React.Component {
     }
     
     render () {
-        const { todos, handleChange, handleSubmit, formTodo, handleStaged } = this.props;
+        const { todos, handleChange, handleSubmit, formTodo, handleStaged, handleClear } = this.props;
         return (
             <div>
                 {todos.map(item => (
@@ -16,8 +16,10 @@ export default class TodoForm extends React.Component {
                 ))}
                 <form onSubmit={handleSubmit}>
                     <input onChange={handleChange} value={formTodo} />
-                    <button type='submit' >Submit</button>
+                    <button type='submit' >Add Todo</button>
+                    <button type='button' onClick={() => handleClear(todos)} >Clear Completed</button>
                 </form>
+                
             </div>
         )
     }

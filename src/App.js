@@ -49,13 +49,19 @@ class App extends React.Component {
     debugger
   }
 
+  handleClear = (todos) => {
+    const results = todos.filter((el) => el.completed !== true);
+    debugger
+    this.setState({todos: results})
+  }
+
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
     const { todos, formTodo } = this.state
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoForm todos={todos} formTodo={formTodo} handleSubmit={this.handleSubmit} handleChange={this.handleChange} handleStaged={this.handleStaged} />
+        <TodoForm todos={todos} formTodo={formTodo} handleSubmit={this.handleSubmit} handleChange={this.handleChange} handleStaged={this.handleStaged} handleClear={this.handleClear} />
       </div>
     );
   }
